@@ -7,7 +7,7 @@ def index():
     return render_template('index.html')
 
 # display current bitcoin price
-@app.route('/bitcoin')
+@app.route('/bitcoin', methods=['GET', 'POST'])
 def bitcoin():
     return "Current bitcoin price"
 
