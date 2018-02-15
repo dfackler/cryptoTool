@@ -7,7 +7,8 @@ import pickle
 import quandl
 from datetime import datetime
 
-import plotly.plotly as py
+import plotly.offline as py
+# import plotly.graph_objs as go
 import plotly.graph_objs as go
 import plotly.figure_factory as ff
 
@@ -31,9 +32,19 @@ btc_usd_price_kraken = get_quandl_data('BCHARTS/KRAKENUSD')
 # print(btc_usd_price_kraken.head())
 
 # Chart the BTC pricing data
-py.sign_in('dfackler', '7KMQkbcwJhmnbkzutsL5')
-btc_trace = go.Scatter(x=btc_usd_price_kraken.index, y=btc_usd_price_kraken['Weighted Price'])
-py.image.save_as(btc_trace, filename='bitcoin.png')
+#py.sign_in('dfackler', '7KMQkbcwJhmnbkzutsL5')
+# Scatter(x=btc_usd_price_kraken.index, y=btc_usd_price_kraken['Weighted Price'])
+#py.image.save_as(btc_trace, filename='bitcoin.png')
+
+# from IPython.display import Image
+# Image('a-simple-plot.png')
+
+trace = go.Bar(x=[2, 4, 6], y= [10, 12, 15])
+data = [trace]
+layout = go.Layout(title='A Simple Plot', width=800, height=640)
+fig = go.Figure(data=data, layout=layout)
+
+py.image.save_as(fig, filename='a-simple-plot.png')
 
 from IPython.display import Image
 Image('a-simple-plot.png')

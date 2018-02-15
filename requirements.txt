@@ -4,3 +4,4 @@ numpy==1.14.0
 Quandl==3.3.0
 DateTime==4.2
 plotly==2.2.3
+ipython==5.5.0
